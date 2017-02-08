@@ -1,4 +1,4 @@
-DASHBINDIR=/root/dashcore/dashcore-0.12.1/bin
+DASHBINDIR=./dashcore-0.12.1/bin
 DASHD=${DASHBINDIR}/dashd
 DASHGUI=${DASHBINDIR}/dash-qt
 DASHCLI=${DASHBINDIR}/dash-cli
@@ -10,6 +10,10 @@ BLOCKS=1
 ADDRESS=
 AMOUNT=
 ACCOUNT=
+
+download:
+	wget 'https://www.dash.org/binaries/dashcore-0.12.1.0-linux64.tar.gz'
+	tar xvzf dashcore-0.12.1.0-linux64.tar.gz
 
 start:
 	$(DASHD) $(B1) -daemon
