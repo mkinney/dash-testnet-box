@@ -3,9 +3,10 @@
 Create your own private DASH testnet
 
 Note: This was heavily borrowed from: https://github.com/freewil/bitcoin-testnet-box .
-It is assumed that you are running this on 64 bit linux.
+It is assumed that you are running this on 64 bit linux. (tested on Ubuntu 16.10)
 
-You must have `dashd` and `dash-cli` installed on your system
+You must have `dashd` and `dash-cli` installed on your system and modify the top of the
+Makefile, or you can run the `make download` option.
 
 ## Starting the testnet-box
 
