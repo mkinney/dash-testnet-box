@@ -2,7 +2,8 @@
 
 Create your own private DASH testnet
 
-Note: This was heavily borrowed from: https://github.com/freewil/bitcoin-testnet-box 
+Note: This was heavily borrowed from: https://github.com/freewil/bitcoin-testnet-box .
+It is assumed that you are running this on 64 bit linux.
 
 You must have `dashd` and `dash-cli` installed on your system
 
@@ -20,6 +21,12 @@ Node `1` will listen on port `19001` and node `2` will listen on port `19011`
 for the JSON-RPC server.
 
 
+## To download the DASH v12.1 binaries.
+```
+$ make download
+```
+
+## To start the DASH processes
 ```
 $ make start
 ```
