@@ -6,7 +6,8 @@ Note: This was heavily borrowed from: https://github.com/freewil/bitcoin-testnet
 It is assumed that you are running this on 64 bit linux. (tested on Ubuntu 16.10)
 
 You must have `dashd` and `dash-cli` installed on your system and modify the top of the
-Makefile, or you can run the `make download` option.
+Makefile, or you can run the `make download` option. You need to have `make`
+installed. (`apt-get install make`)
 
 ## Starting the testnet-box
 
@@ -94,9 +95,9 @@ To generate more than 1 block:
 $ make generate BLOCKS=10
 ```
 
-## Need to generate at least 100 blocks before there will be a balance in the first wallet
+## Need to generate at least 200 blocks before there will be a balance in the first wallet
 ```
-$ make generate BLOCKS=100
+$ make generate BLOCKS=200
 ```
 
 ## Verify that there is a balance on the first wallet
@@ -140,3 +141,22 @@ original state:
 $ make clean
 ```
 
+## Connect a GUI wallet to your new testnet
+Create a new digital ocean droplet (16.10, smallest is fine).
+Login.
+```
+$ git clone https://github.com/mkinney/dash-testnet-box.git
+$ cd dash-testnet-box
+$ make download
+$ make start
+```
+On mac, with 12.1 GUI installed, copy the files in gui_wallet (dashinbox.bash and dashinbox.conf) to ~/Library/Application\ Support/DashCore. (be sure to `chmod +x dashinbox.bash`. Edit the dashinbox.conf file for the ip address of your digital ocean droplet. Run `./dashinbox.bash`. Once the wallet is started (which should be very quick), click on "receive", then send 1000 DASH to that address, and generate 6 blocks for it to confirm.
+```
+$ make sendfrom1 ADDRESS=yZ5ASQH5LPWoFXHmXuG5AX6Pkyk25mbNtC AMOUNT=1000
+$ make generate BLOCKS=6
+```
+You should now have 1000 DASH in this GUI wallet, so you can make your first masternode. Go into Tools, Debug Console, and type:
+```
+masternode genkey
+```
+TODO: finish the masternode config
