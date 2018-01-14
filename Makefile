@@ -1,4 +1,4 @@
-DASHBINDIR=./dashcore-0.12.1/bin
+DASHBINDIR=./dashcore-0.12.2/bin
 DASHD=${DASHBINDIR}/dashd
 DASHGUI=${DASHBINDIR}/dash-qt
 DASHCLI=${DASHBINDIR}/dash-cli
@@ -12,8 +12,8 @@ AMOUNT=
 ACCOUNT=
 
 download:
-	wget 'https://www.dash.org/binaries/dashcore-0.12.1.0-linux64.tar.gz'
-	tar xvzf dashcore-0.12.1.0-linux64.tar.gz
+	wget 'https://github.com/dashpay/dash/releases/download/v0.12.2.3/dashcore-0.12.2.3-linux64.tar.gz'
+	tar xvzf dashcore-0.12.2.3-linux64.tar.gz
 
 start:
 	$(DASHD) $(B1) -daemon
